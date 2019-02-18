@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <Console name="Console">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{1.} - %msg%n"/>
+        </Console>
+
+        <RollingFile name="RollingFileAll" fileName="logs/all.log"
+                     filePattern="logs/all-%i.log.gz">
+            <CronTriggeringPolicy schedule="0 0 0,6,12,18 * * ?"/>
+            <DefaultRolloverStrategy max="8"/>
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{1.} - %msg%n"/>
+        </RollingFile>
+
+        <RollingFile name="RollingFileAus" fileName="logs/austrum.log"
+                     filePattern="logs/austrum-%i.log.gz">
+            <CronTriggeringPolicy schedule="0 0 0,6,12,18 * * ?"/>
+            <DefaultRolloverStrategy max="8"/>
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{1.} - %msg%n"/>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFileAll"/>
+        </Root>
+        <logger name="austrum" level="debug">
+            <AppenderRef ref="RollingFileAus"/>
+        </logger>
+    </Loggers>
+</Configuration>

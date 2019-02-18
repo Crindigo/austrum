@@ -1,0 +1,57 @@
+buildscript {
+    ext {
+        log4j2_version = '2.11.2'
+    }
+}
+
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.3.11'
+}
+
+group 'com.crindigo.austrum'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+
+    // logging
+    compile "org.apache.logging.log4j:log4j-api:$log4j2_version"
+    compile "org.apache.logging.log4j:log4j-core:$log4j2_version"
+    compile "org.apache.logging.log4j:log4j-slf4j-impl:$log4j2_version"
+    compile "org.apache.logging.log4j:log4j-jul:$log4j2_version"
+
+    // di
+    compile 'org.rewedigital.katana:katana-core:1.3.0'
+    
+    // nosql storage
+    compile 'io.lettuce:lettuce-core:5.1.4.RELEASE'
+
+    // sql storage
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.15'
+    compile "org.apache.commons:commons-dbcp2:2.5.0"
+    compile group: 'commons-dbutils', name: 'commons-dbutils', version: '1.7'
+    
+    // http api
+    compile "org.glassfish.jersey.core:jersey-server:2.28"
+    compile "org.glassfish.jersey.inject:jersey-hk2:2.28"
+    compile "org.glassfish.jersey.containers:jersey-container-grizzly2-http:2.28"
+    compile "org.glassfish.jersey.media:jersey-media-multipart:2.28"
+    compile "org.glassfish.jersey.media:jersey-media-json-jackson:2.28"
+    compile "org.glassfish.jersey.media:jersey-media-sse:2.28"
+    compile "org.glassfish.jersey.ext:jersey-entity-filtering:2.28"
+    compile "org.glassfish.jersey.ext:jersey-bean-validation:2.28"
+    compile "com.fasterxml.jackson.module:jackson-module-kotlin:2.9.8"
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
