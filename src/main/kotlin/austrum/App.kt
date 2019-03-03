@@ -26,6 +26,8 @@ import org.jvnet.hk2.annotations.Contract
 
 fun main(args: Array<String>)
 {
+    System.setProperty("java.util.logging.manager", "org.apache.logging.log4j.jul.LogManager")
+
     val logger = LoggerFactory.getLogger("austrum.AppKt")
 
     thread(start = true, name = "HttpThread") {

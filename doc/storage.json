@@ -1,0 +1,26 @@
+{
+  "items": [
+    {
+      "id": "1234abcd",
+      "name": "Ice Blade",
+      "tags": ["sword", "shortsword"],
+      "damage": [
+        {"type": "cold", "range": [20, 30]},
+        {"type": "slash", "range": [30, 40]}
+      ]
+    }
+  ],
+
+  "damageTypes": [
+    {
+      "id": "cold",
+      "name": "Cold",
+      "category": "magical"
+    },
+    {
+      "id": "slash",
+      "name": "Slash",
+      "category": "physical"
+    }
+  ]
+}

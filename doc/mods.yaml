@@ -1,0 +1,7 @@
+ModifyDamageTypes:
+  multiply:
+    fire: 2
+  add:
+    ice: 50
+    slash: [10, 20]
+
